@@ -1,15 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CollegeCourses
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            var bootstrapper = new Bootstrapper(new ConsoleOutputWriter());
+
+            try
+            {
+                bootstrapper.Start(args);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);                
+            }
+
+            Console.ReadLine();
         }
     }
 }
